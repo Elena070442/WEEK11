@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="style/index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <input value="Нажми меня" onclick="alert('Click!')" type="button">
+
+    <input id="elem" type="button" value="Нажми меня!">
+
+<script>
+let button = document.getElementById("elem");
+button.onclick = function() {
+    console.log('Спасибо');
+};
+</script>
+
+<script>
+    function countRabbits() {
+    console.log("У нас 8 кроликов!");
+    }
+</script>
+<input type="button" onclick="countRabbits()" value="Считать кроликов!">
+
+<form class='form'>
+    <input class='form__input' type='text'>
+    <button class='form__button' type='submit'>
+        Отправить
+    </button>
+</form>
+
+<script>
+	let formElement = document.querySelector('.form');
+
+
+	formElement.addEventListener('submit', function (evt) {
+	    evt.preventDefault(); //Отмена стандартного поведения формы
+	    console.log('Форма отправлена');
+	});
+</script>
+<!-- //задача1 -->
+<div class='html'>
+    <p id='practicum1' class='html-text'>Тут будет твой текст...</p>
+</div>
+<script>
+    let practicum1Element=document.getElementById("practicum1");
+    practicum1Element.innerHTML="12345"
+</script>
+<!-- задача2 -->
+<div class='html'>
+    <span id='practicum2' class='html-text'>Тут будет твой текст...</span>
+</div>
+<script>
+    const spanElement = document.getElementById('practicum2')
+function makeTwo() {
+	spanElement.innerText = 'Привет, Мир!'
+}
+makeTwo()
+</script>
+
+<div class='html'>
+    <h1 id='practicum3' class='html-text'>Старый заголовок</h1>
+</div>
+<script>
+    const title=document.querySelector('.html-text');
+function makeThree() {
+	title.innerText="Заголовок изменен!"
+}
+makeThree();
+</script>
+
+<div class='html'>
+    <div id='practicum4' class='html-yellow-div'>123</div>
+</div>
+<script>
+const divElement = document.querySelector('.html-yellow-div')
+function makeFour() {
+	divElement.style.background = 'red'
+}
+makeFour()
+</script>
+
+<div class='html'>
+    <input type='text' id='practicum5' class='html-input' value ='Старое значение' />
+</div>
+<script>
+    const inputElement = document.getElementById('practicum5');
+function makeFive() {
+	inputElement.value = 'Новое значение'
+}
+makeFive()
+</script>
+
+<div class='html'>
+    <img id="practicum6" class='html-img' src="oldimage.jpg" alt="Старое изображение">
+</div>
+<script>
+    function makeSix() {
+	const img = document.getElementById('practicum6')
+	img.alt = 'Новое изображение'
+}
+makeSix()
+</script>
+
+<button id="big-red-button" onclick="alert('Бум!');" disabled>
+Кнопка самоуничтожения
+</button>
+
+<script>
+	//Получаем по идентификатору кнопку и сохраняем в переменной button
+	let button = document.querySelector('#big-red-button');
+
+	//Исследуем элемент-кнопку методом getAttribute
+	button.getAttribute('lang'); //null
+	button.getAttribute('несуществующий атрибут'); //null
+	button.getAttribute('disabled'); //''
+</script>
+
+<!-- В именах классов записаны характеристики Котика -->
+<div class="scientist beautiful">The Cat</div>
+
+<script>
+/* получаем список характеристик Котика в переменной,
+обратившись к соответствующему элементу с селектором .scientist */
+
+let cat = document.querySelector('.scientist');
+console.log(`The cat is: ${cat.classList}`); //The cat is: scientist beautiful
+</script>
+<script>
+let cat = document.querySelector('.scientist');
+
+cat.classList.contains('scientist'); //true — scientist есть
+cat.classList.contains('bright'); //false — а bright нет
+</script>
+<!-- задача7 -->
+<div class='html'>
+    <a id="practicum7" class='html-link' href="https://itgirlschool.com">Старая ссылка</a>
+</div>
+<script>
+    const linkElement=document.querySelector('practicum7')
+
+	function makeSeven() {
+linkElement=document.querySelector('#practicum7')
+linkElement.href='https://www.google.com'
+linkElement.innerElement="Ссылка на Google"
+}
+makeSeven()
+
+
+</script>
+
+
+    <!-- задача8  добавить новый элемент -->
+    <div class='html'>
+    <ul id='practicum8'>
+        <li>Элемент 1</li>
+        <li>Элемент 2</li>
+    </ul>
+    </div>
+    <script>
+        function makeEight() {
+	const ulElement = document.getElementById('practicum8');
+    const newLi = document.createElement('li');
+    newLi.textContent = 'Новый элемент';
+    ulElement.appendChild(newLi);
+}
+makeEight()
+    </script>
+<!-- задача9  -->
+<div class='html'>
+    <select id='practicum9'>
+    <option>Вариант 1</option>
+    <option>Вариант 2</option>
+    </select>
+</div>
+<script>
+    function makeNine() {
+const selectElement = document.getElementByld('practicum9');
+const newElement = document.createElement('option');
+newElement.textContent='Новый вариант';
+selectElement.append(newElement);
+}
+makeNine()
+</script>
+
+<div class='html'>
+    <div id='practicum11' class='html-yellow-div'></div>
+</div>
+<script>
+    
+</script>
+<div id="parent">
+<div id="child">
+    <p>Этот параграф находится внутри дочернего элемента</p>
+</div>
+</div>
+<script>
+    // Находим параграф
+const paragraph = document.querySelector('p');
+
+// Находим ближайший родительский элемент с id "parent"
+const parentDiv = paragraph.closest('#parent');
+
+// Добавляем стиль к найденному родительскому элементу
+parentDiv.style.border = '2px solid green';
+    </script>
+
+<section class='html'>
+    <div id='practicum20' class='html-text'>Задание 20</div>
+</section>
+<script>
+function makeTwenty() {
+const divElement = document.getElementById('practicum20')
+const paragraph = document.createElement('p')
+paragraph.innerText = 'Добавлено в начало'
+divElement.prepend(paragraph)
+}
+makeTwenty()
+</script>
+<!-- Используйте метод getElementById, чтобы найти элемент <img>. Выведите информацию на экран о наличии атрибута "src" у изображения. -->
+
+<!-- Подсказка: Используйте метод hasAttribute для проверки наличия атрибута. -->
+
+<section class='html'>
+<img id="practicum22" class='html-img' src="image.jpg" alt="Изображение">
+<p class='html-text'></p>
+</section>
+
+//1 шаг: Найдите элемент
+	//2 шаг: Создайте переменную, которая проверяет наличие атрибута у найденного элемента
+	//3 шаг: Найдите элемент, в который нужно вставить значение
+	//4 шаг: Добавьте в элемент текстовое значение 2 шага. Например: переменная = 'Атрибут "src" присутствует: ' + название переменной из 2 шага;
+
+<script>
+    function makeTwentyTwo() {
+const divElement = document.getElementById('practicum22')
+const isAttribute = divElement.hasAttribute('src')
+const paragraph = document.querySelector('.html-text')
+paragraph.innerText = 'Атрибут "src" присутствует: ' + isAttribute
+}
+makeTwentyTwo()
+</script>
+
+<section class='html'>
+    <ol id='practicum13'>
+    <li>Пятый</li>
+    <li>Второй</li>
+    <li>Третий</li>
+    </ol>
+</section>
+<script>
+    function makeThirteen() {
+const listItems = document.getElementsByTagName('li')
+const firstItem = listItems.item(0)
+firstItem.innerText = 'Первый!'
+}
+makeThirteen()
+</script>
+<!-- 26 -->
+<section class='html'>
+    <div id='practicum26'></div>
+</section>
+<script>
+    const div = document.querySelector('#practicum26')
+const parent = div.closest('.html')
+
+const makeTwentySix = () => {
+	parent.style.backgroundColor = 'red'
+}
+
+makeTwentySix()
+</script>
+<!-- 23 -->
+<section class='html'>
+    <a id="practicum23" class='html-link' href="https://itgirlschool.com/">Ссылка</a>
+</section>
+Ссылка
+<script>
+    function makeTwentyThree() {
+const link = document.getElementById('practicum23')
+link.removeAttribute('href')
+}
+makeTwentyThree()
+</script>
+// 25
+Используйте метод getElementById, чтобы найти элемент <div>. Добавьте атрибут "data-info" со значением "Дополнительная информация" к элементу <div>. Выведите значение атрибута на экран.
+
+Подсказка: Используйте метод setAttribute для добавления атрибута.
+
+<section class='html'>
+<div id='practicum25'></div>
+<p class='html-text'></p>
+</section>
+<script>
+    function makeTwentyFive() {
+const divElement = document.getElementById('practicum25')
+divElement.setAttribute('data-info', 'Дополнительная информация')
+const dataInfoText = divElement.getAttribute('data-info')
+const paragraph = document.querySelector('.html-text')
+paragraph.innerText = 'Добавленный атрибут: ' + dataInfoText
+}
+makeTwentyFive()
+    </script>
+// 27
+
+    <script>
+        function makeTwentySeven() {
+const divElement = document.getElementById('practicum27')
+const result = divElement.classList.contains('highlight');
+const divResultElement = document.getElementById('result')
+divResultElement.innerText = result
+}
+makeTwentySeven()
+        </script>
+// 29
+Введите в <input/> - 'Значение изменено'. Используйте метод getElementById, чтобы найти элемент <input>. Получите значение из <input/> и выведите его в <p> c id 'result'.
+
+<section class='html'>
+<input type='text' id='practicum29' class='html-input' value ='' />
+<p id='result'></p>
+</section>
+<script>
+    function handleChange() {
+const inputElement = document.getElementById('practicum29')
+inputElement.value = 'Значение изменено'
+const inputValue = inputElement.value
+const resultElement = document.getElementById('result')
+resultElement.textContent = inputValue
+}
+handleChange()
+    </script>
+// 30
+Используйте метод getElementById, чтобы найти элемент <div>. Получите текст из этого элемента и выведите его в <p>
+
+<section class='html'>
+<div id='practicum30' class='html-text'>Этот текст надо вывести в параграф</div>
+<p id='result'></p>
+</section>
+Этот текст надо вывести в параграф
+    <script>
+        function handleClick() {
+const divElement = document.getElementById('practicum30')
+const paragraph = document.getElementById('result')
+paragraph.innerText = divElement.innerText
+}
+handleClick()
+        </script>
+        Чтобы изменить текст всех элементов  на странице на "Огого, что могу!", вы можете использовать следующий код JavaScript вместе с методом querySelectorAll. Этот код можно добавить в тег  на вашей HTML-странице:
+
+
+
+
+<section class='html'>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<p>Nunc id metus quis ligula gravida consectetur.</p>
+<p>Nullam nec ex ac ligula placerat mattis.</p>
+</section>
+
+<script>
+    // Ищем все элементы <p> на странице
+    const paragraphs = document.querySelectorAll('p');
+    
+    // Изменяем текст для каждого найденного элемента
+    paragraphs.forEach(function(paragraph) {
+        paragraph.textContent = 'Огого, что могу!';
+    });
+</script>
+// 18
+
+Используйте метод getElementById, чтобы найти элемент <p>. Добавьте ему класс "active", который изменит цвет текста. При повторном нажатии удалите класс "active".
+
+Подсказка: используйте метод toggle класса элемента.
+
+<section class='html'>
+<p id='practicum18' class='html-text'>Это текст 18 задания</p>
+</section>
+<script>
+    function makeEighteen() {
+const paragraph = document.getElementById('practicum18')
+paragraph.classList.toggle('active')
+}
+makeEighteen()
+    </script>
+</body>
+</html>
+
